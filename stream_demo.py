@@ -1,7 +1,9 @@
 import requests
 import json
-
-ai_key = 'dda2e500cfe649c1a2f905bbfcc0c8ff.xfSUPuAzR5VJoPJm'
+import os
+ai_key = os.getenv('ZHIPU_API_KEY')
+if not ai_key:
+    raise SystemExit('没有找到环境变量')
 url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
 headers = {
