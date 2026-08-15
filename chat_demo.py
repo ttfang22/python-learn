@@ -1,6 +1,9 @@
 import requests
+import os 
 
-api_key = 'dda2e500cfe649c1a2f905bbfcc0c8ff.xfSUPuAzR5VJoPJm'
+api_key = os.getenv('ZHIPU_API_KEY')
+if not api_key:
+    raise SystemExit('没有设置环境变量')
 url = 'https://open.bigmodel.cn/api/paas/v4/chat/completions'
 duihua = input('请提出问题:')
 
